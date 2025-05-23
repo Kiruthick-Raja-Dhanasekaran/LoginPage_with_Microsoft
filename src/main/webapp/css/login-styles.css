@@ -1,0 +1,137 @@
+/* General Body and Background */
+body.login-page {
+    background-image: url('../images/loginbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0; /* Vertical padding for the page */
+}
+
+/* Logo Area Styling */
+.login-bg-image { /* This class is on the div wrapping the logo */
+    text-align: center;
+    margin-bottom: 1rem; /* Space between logo and card */
+    /* The p-5 class from Bootstrap on this div in JSP provides padding. */
+    /* If removing p-5, add padding here: e.g., padding: 1rem 0; */
+}
+
+.login-logo-link {
+    padding: 1rem; /* Reduced padding for the link itself */
+    display: inline-block;
+    float: none; /* Already set, ensure it's not overridden */
+}
+
+.login-logo-link img {
+    max-height: 80px; /* Control logo size */
+    width: auto;
+}
+
+/* Login Card Styling */
+.login-card {
+    background: hsla(0, 0%, 100%, 0.9);
+    backdrop-filter: blur(10px); /* Adjust blur as needed, can be performance intensive */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    max-width: 480px; /* Max width of the login card */
+    width: 90%; /* Responsive width */
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-top: 1rem; /* Small top margin, adjust as needed */
+    /* Centering is handled by flex on body */
+    padding: 1rem; /* Add some internal padding to the card itself */
+}
+
+.login-card-body {
+    box-shadow: none; /* Shadow is on .login-card */
+    padding: 2rem; /* Inner padding for form elements */
+}
+
+.login-card h2 {
+    font-weight: 600; /* Bolder title */
+    margin-bottom: 2rem; /* Space below title */
+    text-align: center; /* Center the "Login" title */
+}
+
+/* Form Input Styling */
+.login-card .form-control {
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem; /* Space below each input */
+    border: 1px solid #ced4da; /* Standard Bootstrap border */
+}
+
+.login-card .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styling */
+.login-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    width: 100%; /* Make button full width of its container */
+}
+
+.login-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    text-align: left; /* Align text to the left for readability */
+}
+
+/* Initially hidden error messages (as per original setup) */
+#errorMessage,
+#sessionExpiredMessage {
+    display: none;
+}
+
+/* Spinner styles (assuming .spanner and .loader classes exist from original JSP) */
+.spanner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    width: 100%;
+    height: 100%;
+    display: none; /* Initially hidden */
+    z-index: 1050; /* Ensure it's above other content */
+    justify-content: center;
+    align-items: center;
+}
+
+.spanner.show { /* Class to show the spinner */
+    display: flex;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
